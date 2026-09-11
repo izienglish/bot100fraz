@@ -52,7 +52,7 @@ async def send_pdf(chat_id: int, context: ContextTypes.DEFAULT_TYPE) -> None:
             document=f,
             filename=PDF_FILENAME,
             caption=(
-                "Вот твой файл «100 фраз»! 🎉\n\n"
+                "Вот твой файл «100 самых нужных фраз на Английском»! 🎉\n\n"
                 "Сохрани его и повторяй фразы каждый день — так лучше всего запоминается 💪"
             ),
         )
@@ -65,7 +65,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     else:
         await update.message.reply_text(
             "Привет! 👋\n\n"
-            f"Чтобы получить файл «100 фраз», сначала подпишись на канал {CHANNEL_USERNAME} "
+            f"Чтобы получить файл «100 самых нужных фраз на Английском», сначала подпишись на канал {CHANNEL_USERNAME} "
             "— там ещё много полезного для изучения английского.\n\n"
             "После подписки нажми кнопку ниже 👇",
             reply_markup=subscribe_keyboard(),
