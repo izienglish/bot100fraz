@@ -91,17 +91,49 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(6px); }
   }
+
+  /* Анимированная стрелка, указывающая на "..." меню браузера в углу экрана */
+  .corner-arrow {
+    position: fixed;
+    top: 6px;
+    right: 6px;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 10;
+    animation: nudge 1.3s ease-in-out infinite;
+  }
+  .corner-arrow path {
+    fill: none;
+    stroke: var(--red);
+    stroke-width: 5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+  }
+  .corner-arrow polygon {
+    fill: var(--red);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+  }
+  @keyframes nudge {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-4px, 4px) rotate(-4deg); }
+  }
 </style>
 </head>
 <body>
+  <!-- Стрелка на угол экрана, где у браузера кнопка "..." -->
+  <svg class="corner-arrow" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20,110 C15,60 40,25 95,15" />
+    <polygon points="95,3 118,14 92,26" />
+  </svg>
+
   <div class="card">
     <span class="badge">EASY-PEASY</span>
     <h1>100 самых нужных английских фраз — бесплатно 🎉</h1>
     <p class="sub">Нажми кнопку ниже, чтобы открыть бота в Telegram и получить файл</p>
     <a class="btn" id="openBtn" href="tg://resolve?domain=EasyPeasyPdfBot">Открыть в Telegram</a>
     <div class="hint">
-      <span class="arrow">⬆️</span><br>
-      Если не открылось — нажми ⋯ вверху экрана<br>и выбери «Открыть в браузере»
+      Если не открылось — нажми <b>⋯</b> вверху экрана (см. стрелку)<br>и выбери «Открыть в браузере»
     </div>
   </div>
 
