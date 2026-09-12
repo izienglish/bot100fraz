@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Easy Peasy | Учим Английский</title>
 
-<!-- Мета-теги, из-за которых TikTok/соцсети показывают карточку "как у Telegram" -->
 <meta property="al:android:app_name" content="Telegram">
 <meta property="al:android:package" content="org.telegram.messenger">
 <meta property="al:android:url" content="tg://resolve?domain=EasyPeasyPdfBot">
@@ -83,10 +82,9 @@
     line-height: 1.6;
   }
 
-  /* Анимированная стрелка, указывающая на "..." меню браузера в углу экрана */
   .corner-arrow {
     position: fixed;
-    top: 22;
+    top: 4px;
     right: 6px;
     width: 90px;
     height: 160px;
@@ -108,7 +106,6 @@
 </style>
 </head>
 <body>
-  <!-- Стрелка на угол экрана, где у браузера кнопка "..." -->
   <svg class="corner-arrow" viewBox="0 0 90 160" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
@@ -129,11 +126,7 @@
   </div>
 
   <script>
-    // Пытаемся открыть Telegram автоматически сразу при загрузке страницы
     window.location.href = "tg://resolve?domain=EasyPeasyPdfBot";
-
-    // Если через секунду страница ещё открыта (приложение не открылось) —
-    // подстраховываемся обычной t.me ссылкой при клике на кнопку
     document.getElementById('openBtn').addEventListener('click', function (e) {
       setTimeout(function () {
         window.location.href = "https://t.me/EasyPeasyPdfBot";
