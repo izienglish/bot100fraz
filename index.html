@@ -101,10 +101,6 @@
     stroke-linecap: round;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
   }
-  .corner-arrow polygon {
-    fill: var(--red);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
-  }
   @keyframes nudge {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
@@ -114,8 +110,12 @@
 <body>
   <!-- Стрелка на угол экрана, где у браузера кнопка "..." -->
   <svg class="corner-arrow" viewBox="0 0 90 160" xmlns="http://www.w3.org/2000/svg">
-    <path d="M55,155 C48,110 52,55 62,15" />
-    <polygon points="63,0 78,20 55,20" />
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+        <polygon points="0,0 8,4 0,8" fill="#C0392B" />
+      </marker>
+    </defs>
+    <path d="M40,150 Q12,70 68,12" marker-end="url(#arrowhead)" />
   </svg>
 
   <div class="card">
